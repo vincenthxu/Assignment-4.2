@@ -11,7 +11,7 @@ namespace Mini_LMS_App
         public List<Student> Students;
         public StudentViewModel()
         {
-            Students = new List<Student>();
+            Students = new();
         }
         public StudentViewModel(List<Student> students)
         {
@@ -22,7 +22,7 @@ namespace Mini_LMS_App
             Random random = new Random();
             for (int i = 1; i <= 10; i++)
             {
-                Students.Add(new Student(id: i, firstName: $"Student", lastName: $"{i}", gpa: $"{ random.NextDouble() * 4.0 :N}"));
+                Students.Add(new Student(id: i, firstName: $"Student", lastName: $"{i}", gpa: $"{random.NextDouble() * 4.0:N}") { Password = "password" });
             }
         }
     }

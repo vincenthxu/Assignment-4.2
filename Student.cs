@@ -8,10 +8,12 @@ namespace Mini_LMS_App
 {
     public class Student : IUser, IComparable<Student>
     {
+        private string password;
         public Role Role { get; set; }
         public int ID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Password { set { password = value; } }
         public string FullName { get { return FirstName + " " + LastName; } }
         public string GPA { get; set; }
         public Student(int id, string firstName, string lastName, string gpa)
@@ -21,6 +23,10 @@ namespace Mini_LMS_App
             LastName = lastName;
             GPA = gpa;
             Role = Role.Student;
+        }
+        public bool ValidatePassword(string password)
+        {
+            return this.password == password;
         }
         public int CompareTo(Student? other)
         {

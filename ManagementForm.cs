@@ -2,8 +2,8 @@ namespace Mini_LMS_App
 {
     public partial class ManagementForm : Form
     {
-        private StudentViewModel studentViewModel;
-        private string filePath = "highestgpa.txt";
+        private StudentViewModel studentViewModel = new();
+        private string filePath = "highestgpa.json";
         public ManagementForm()
         {
             InitializeComponent();
@@ -12,7 +12,6 @@ namespace Mini_LMS_App
         private void ManagementForm_Load(object sender, EventArgs e)
         {
             ValidateUserLogon();
-            studentViewModel = new();
             studentViewModel.CreateData();
             studentViewModel.Students.Sort();
             studentBindingSource.DataSource = studentViewModel.Students;
@@ -21,7 +20,7 @@ namespace Mini_LMS_App
         private void ValidateUserLogon()
         {
             LogonForm logonForm = new LogonForm();
-            if (logonForm.ShowDialog(this) != DialogResult.Yes)
+            if (logonForm.ShowDialog(this) != DialogResult.OK)
             {
                 Close();
             }
@@ -38,17 +37,30 @@ namespace Mini_LMS_App
             {
                 studentViewModel.Students.RemoveAt(count - 1);
             }
+            else
+            {
+                // List is empty
+                MessageBox.Show("No students exist!");
+            }
             studentBindingSource.ResetBindings(true);
         }
 
         private void saveHighestGPAButton_Click(object sender, EventArgs e)
         {
             int count = studentViewModel.Students.Count;
-            using (StreamWriter sw = new StreamWriter(filePath))
+            if (count > 0)
             {
-                sw.WriteLine(studentViewModel.Students[count - 1]);
+                using (StreamWriter sw = new StreamWriter(filePath))
+                {
+                    sw.WriteLine(studentViewModel.Students[count - 1]);
+                }
+                MessageBox.Show($"Saved {studentViewModel.Students[count - 1].FullName}'s information to {filePath}");
             }
-            MessageBox.Show($"Saved {studentViewModel.Students[count - 1].FullName}'s information to {filePath}");
+            else
+            {
+                // List is empty
+                MessageBox.Show("No students exist!");
+            }
         }
     }
 }

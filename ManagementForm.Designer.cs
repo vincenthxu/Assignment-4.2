@@ -100,9 +100,10 @@
             // 
             // saveHighestGPAButton
             // 
+            saveHighestGPAButton.FlatStyle = FlatStyle.Popup;
             saveHighestGPAButton.Location = new Point(805, 0);
             saveHighestGPAButton.Name = "saveHighestGPAButton";
-            saveHighestGPAButton.Size = new Size(226, 86);
+            saveHighestGPAButton.Size = new Size(226, 222);
             saveHighestGPAButton.TabIndex = 1;
             saveHighestGPAButton.Text = "Save Highest GPA";
             saveHighestGPAButton.UseVisualStyleBackColor = true;
@@ -110,9 +111,10 @@
             // 
             // deleteHighestGPAButton
             // 
-            deleteHighestGPAButton.Location = new Point(805, 92);
+            deleteHighestGPAButton.FlatStyle = FlatStyle.Popup;
+            deleteHighestGPAButton.Location = new Point(805, 228);
             deleteHighestGPAButton.Name = "deleteHighestGPAButton";
-            deleteHighestGPAButton.Size = new Size(226, 85);
+            deleteHighestGPAButton.Size = new Size(226, 222);
             deleteHighestGPAButton.TabIndex = 2;
             deleteHighestGPAButton.Text = "Delete Highest GPA";
             deleteHighestGPAButton.UseVisualStyleBackColor = true;

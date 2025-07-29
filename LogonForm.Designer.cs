@@ -28,61 +28,95 @@
         /// </summary>
         private void InitializeComponent()
         {
-            LogonLabel = new Label();
-            LogonNoButton = new Button();
-            LogonYesButton = new Button();
+            LoginButton = new Button();
+            usernameLabel = new Label();
+            passwordLabel = new Label();
+            usernameInputBox = new TextBox();
+            passwordInputBox = new TextBox();
+            LoginCancelButton = new Button();
             SuspendLayout();
             // 
-            // LogonLabel
+            // LoginButton
             // 
-            LogonLabel.AutoSize = true;
-            LogonLabel.Font = new Font("Segoe UI", 40F);
-            LogonLabel.Location = new Point(54, 96);
-            LogonLabel.Name = "LogonLabel";
-            LogonLabel.Size = new Size(703, 106);
-            LogonLabel.TabIndex = 0;
-            LogonLabel.Text = "Are you a teacher?";
+            LoginButton.Font = new Font("Segoe UI", 12F);
+            LoginButton.Location = new Point(453, 247);
+            LoginButton.Name = "LoginButton";
+            LoginButton.Size = new Size(200, 75);
+            LoginButton.TabIndex = 2;
+            LoginButton.Text = "Log In";
+            LoginButton.UseVisualStyleBackColor = true;
+            LoginButton.Click += LoginButton_Click;
             // 
-            // LogonNoButton
+            // usernameLabel
             // 
-            LogonNoButton.DialogResult = DialogResult.No;
-            LogonNoButton.Font = new Font("Segoe UI", 40F);
-            LogonNoButton.Location = new Point(12, 279);
-            LogonNoButton.Name = "LogonNoButton";
-            LogonNoButton.Size = new Size(383, 159);
-            LogonNoButton.TabIndex = 1;
-            LogonNoButton.Text = "No";
-            LogonNoButton.UseVisualStyleBackColor = true;
+            usernameLabel.AutoSize = true;
+            usernameLabel.Location = new Point(146, 118);
+            usernameLabel.Name = "usernameLabel";
+            usernameLabel.Size = new Size(91, 25);
+            usernameLabel.TabIndex = 3;
+            usernameLabel.Text = "Username";
             // 
-            // LogonYesButton
+            // passwordLabel
             // 
-            LogonYesButton.DialogResult = DialogResult.Yes;
-            LogonYesButton.Font = new Font("Segoe UI", 40F);
-            LogonYesButton.Location = new Point(401, 279);
-            LogonYesButton.Name = "LogonYesButton";
-            LogonYesButton.Size = new Size(387, 159);
-            LogonYesButton.TabIndex = 2;
-            LogonYesButton.Text = "Yes";
-            LogonYesButton.UseVisualStyleBackColor = true;
+            passwordLabel.AutoSize = true;
+            passwordLabel.Location = new Point(150, 181);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new Size(87, 25);
+            passwordLabel.TabIndex = 4;
+            passwordLabel.Text = "Password";
+            // 
+            // usernameInputBox
+            // 
+            usernameInputBox.Location = new Point(255, 115);
+            usernameInputBox.Name = "usernameInputBox";
+            usernameInputBox.Size = new Size(387, 31);
+            usernameInputBox.TabIndex = 5;
+            // 
+            // passwordInputBox
+            // 
+            passwordInputBox.Location = new Point(255, 178);
+            passwordInputBox.Name = "passwordInputBox";
+            passwordInputBox.Size = new Size(387, 31);
+            passwordInputBox.TabIndex = 6;
+            passwordInputBox.UseSystemPasswordChar = true;
+            // 
+            // LoginCancelButton
+            // 
+            LoginCancelButton.DialogResult = DialogResult.Cancel;
+            LoginCancelButton.Font = new Font("Segoe UI", 12F);
+            LoginCancelButton.Location = new Point(247, 247);
+            LoginCancelButton.Name = "LoginCancelButton";
+            LoginCancelButton.Size = new Size(200, 75);
+            LoginCancelButton.TabIndex = 1;
+            LoginCancelButton.Text = "Cancel";
+            LoginCancelButton.UseVisualStyleBackColor = true;
+            LoginCancelButton.Click += LoginCancelButton_Click;
             // 
             // LogonForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(LogonYesButton);
-            Controls.Add(LogonNoButton);
-            Controls.Add(LogonLabel);
+            Controls.Add(passwordInputBox);
+            Controls.Add(usernameInputBox);
+            Controls.Add(passwordLabel);
+            Controls.Add(usernameLabel);
+            Controls.Add(LoginButton);
+            Controls.Add(LoginCancelButton);
             Name = "LogonForm";
             Text = "Log In";
+            Load += LogonForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private Label LogonLabel;
         private Button LogonNoButton;
-        private Button LogonYesButton;
+        private Button LoginButton;
+        private Label usernameLabel;
+        private Label passwordLabel;
+        private TextBox usernameInputBox;
+        private TextBox passwordInputBox;
+        private Button LoginCancelButton;
     }
 }

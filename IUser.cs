@@ -12,5 +12,7 @@ namespace Mini_LMS_App
         int ID { get; set; }
         string FirstName { get; set; }
         string LastName { get; set; }
+        string Password { set; }
+        public bool ValidatePassword(string password);
     }
 }
